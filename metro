@@ -1,0 +1,63 @@
+#
+# This is the main game file which contains information
+# about your game.
+#
+# Remember, this is really a ruby file, so anything
+# that can be done with Ruby can be written here.
+#
+# "With great power comes great responsibility" ~ Uncle Ben
+
+#
+# This is the name of your game...
+name "slumpy"
+
+#
+# The author of the game. This method can be executed
+# twice if more people are working on this game.
+#
+author "Franklin Webber"
+
+#
+# The website where the person playing this game
+# could learn more about this game, other games, the
+# authors, or perhaps ask for help or support.
+#
+website "www.franklinwebber.com"
+
+#
+# The contact email address where a person that is
+# playing the game might want to contact to thank
+# or reach out for help.
+#
+contact "franklin.webber@gmail.com"
+
+#
+# This sets the resolution for the game
+#
+resolution 800, 600
+
+#
+# The scene that will be shown first when the game
+# starts.
+#
+first_scene :first
+
+#
+# Defines controls which are meta events. They can be used group button
+# events together under a single name so that you can use it throughout
+# the game and also will allow for players of your game to redefine the
+# keys.
+#
+controls do
+  # NAME_OF_EVENT, is: EVENT TYPE, with: [ ALL_EVENTS ]
+  confirmation is: :button_up, with: [ KbReturn, KbEnter, KbSpace, GpButton0 ]
+  cancel is: :button_up, with: [ KbEscape, KbDelete ]
+end
+
+#
+# Enable debug mode for the game. Which could
+# allow different logic. When this is set the
+# Game.debug? method will return a true
+# value.
+#
+debug true

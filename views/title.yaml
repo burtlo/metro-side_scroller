@@ -1,0 +1,11 @@
+title:
+  model: metro::ui::label
+  text: "#{Game.name}"
+  font:
+    size: 40
+  position: "320,100,1"
+  align: center
+  color: rgba(255,255,255,1.0)
+menu:
+  model: metro::ui::menu
+  position: "260,200,1"
