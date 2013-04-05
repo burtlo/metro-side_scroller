@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="19" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Background" tilewidth="32" tileheight="32" spacing="2" margin="2">
+  <image source="level.png" width="640" height="400"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="25" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFpIJeIO4baEcMEzCSwpIafpUEYikgliZDrwwQywKxHAF12kCsA8S6ZNihB8T6QGxAQJ0tENvhkCPGj45EuMUfiANwyKH7cTYQz0FTE4zElsdhThAeO0AA5kcjIN4PxAegfEY6YNVRPKgwAAenGfw=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="25" height="19">
+  <object name="Floor" type="floor" x="0" y="448" width="800" height="32"/>
+  <object name="Tree Top" type="floor" x="352" y="288" width="96" height="32"/>
+  <object name="Tree Top" type="floor" x="576" y="352" width="96" height="32"/>
+  <object name="Tree Top" type="floor" x="64" y="352" width="32" height="32"/>
+ </objectgroup>
+ <layer name="Tile Layer 2" width="25" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRAAOBdMCjYOQBABbTB+o=
+  </data>
+ </layer>
+</map>

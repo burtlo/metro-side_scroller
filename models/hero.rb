@@ -7,7 +7,7 @@ class Hero < Metro::UI::Sprite
   property :position
 
   property :mass, default: 10
-  property :moment_of_interia, default: 1000
+  property :moment_of_interia, default: 1000000
 
   def body
     @body ||= begin
@@ -44,7 +44,7 @@ class Hero < Metro::UI::Sprite
   end
 
   event :on_up, KbSpace do
-    body.apply_force(CP::Vec2.new(0,-20000),CP::Vec2.new(0.0, 0.0))
+    body.apply_force(CP::Vec2.new(0,-30000),CP::Vec2.new(0.0, 0.0))
   end
 
   def show
@@ -53,9 +53,9 @@ class Hero < Metro::UI::Sprite
 
   def draw
     # puts body.v.to_s
-    dim = Dimensions.of(shape.bb.r - shape.bb.l,shape.bb.b - shape.bb.t)
-    border = create "metro::ui::border", position: Point.at(shape.bb.l,shape.bb.t), dimensions: dim
-    border.draw
+    # dim = Dimensions.of(shape.bb.r - shape.bb.l,shape.bb.b - shape.bb.t)
+    # border = create "metro::ui::border", position: Point.at(shape.bb.l,shape.bb.t), dimensions: dim
+    # border.draw
     dangle = body.a.to_degrees
     image.draw_rot(body.p.x,body.p.y,z_order,dangle)
   end
