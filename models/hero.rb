@@ -31,20 +31,18 @@ class Hero < Metro::UI::Sprite
 
 
   event :on_hold, KbLeft, GpLeft do
-    # body.t -= turn_amount
-    body.apply_force(CP::Vec2.new(-400,0),CP::Vec2.new(0.0, 0.0))
+    body.apply_impulse(CP::Vec2.new(-40,0),CP::Vec2.new(0.0, 0.0))
   end
 
   event :on_hold, KbRight, GpRight do
-    # body.t += turn_amount
-    body.apply_force(CP::Vec2.new(400,0),CP::Vec2.new(0.0, 0.0))
+    body.apply_impulse(CP::Vec2.new(40,0),CP::Vec2.new(0.0, 0.0))
   end
 
   event :on_hold, KbDown, GpDown do
   end
 
   event :on_up, KbSpace do
-    body.apply_force(CP::Vec2.new(0,-30000),CP::Vec2.new(0.0, 0.0))
+    body.apply_impulse(CP::Vec2.new(0,-2000),CP::Vec2.new(0.0, 0.0))
   end
 
   def show
@@ -57,7 +55,10 @@ class Hero < Metro::UI::Sprite
     # border = create "metro::ui::border", position: Point.at(shape.bb.l,shape.bb.t), dimensions: dim
     # border.draw
     dangle = body.a.to_degrees
-    image.draw_rot(body.p.x,body.p.y,z_order,dangle)
+
+    hero_x = body.p.x - scene.viewport.left
+    hero_y = body.p.y - scene.viewport.top
+    image.draw_rot(hero_x,hero_y,z_order,dangle)
   end
 
 end
