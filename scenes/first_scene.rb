@@ -19,7 +19,6 @@ class FirstScene < GameScene
     @space ||= begin
       s = CP::Space.new
       s.damping = 0.5
-      # s.gravity = CP::Vec2.new(0,150)
       s
     end
   end
@@ -88,7 +87,7 @@ class FirstScene < GameScene
       space.step(delta)
     end
 
-    distance = (hero.body.p.x - original_position).to_i
+    distance = (hero.body.p.x - original_position).to_f
     viewport.shift(Point.at(distance,0))
 
     hero.body.reset_forces
