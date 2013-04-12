@@ -17,12 +17,18 @@ class FirstScene < GameScene
     end
   end
 
-  def world_bodies
-    @world_bodies ||= []
+  # def world_shapes
+  #   @world_shapes ||= []
+  # end
+
+  def add_objects(objects)
+    Array(objects).each {|object| add_object(object) }
   end
 
-  def world_shapes
-    @world_shapes ||= []
+  def add_object(object)
+    # world_shapes.push object.poly_shape
+    space.add_body object.body
+    space.add_static_shape object.poly_shape
   end
 
   def show
@@ -31,56 +37,34 @@ class FirstScene < GameScene
     # viewport.shift Point.at(tile_map.map.properties["viewport.left"].to_i,0)
     # viewport.shift Point.at(Game.center.x - hero.body.p.x,0)
 
-
-    tile_map.show
-
-    layer = tile_map.layers.first
-
-    object_group = tile_map.map.object_groups.first
-    floors = object_group.objects.find_all {|object| object.type == "floor" }
-
-    floors.each do |floor|
-      floor.points
-
-      body = CP::Body.new Float::INFINITY, Float::INFINITY
-
-      points = floor.points.map do |point|
-        x,y = point.split(",").map {|p| p.to_i }
-        CP::Vec2.new(x,y)
-      end
-
-      new_shape = CP::Shape::Poly.new(body,points.reverse, CP::Vec2::ZERO)
-      new_shape.collision_type = :rock
-      new_shape.e = 0.0
-
-      world_bodies.push body
-      world_shapes.push new_shape
-
-      space.add_body body
-      space.add_static_shape new_shape
-    end
+    add_objects tile_map.objects("floor")
 
     CP.collision_slop = 0.1
     space.add_body hero.body
     space.add_shape hero.shape
   end
 
-  def blocking_image_indexes
-    @blocking_image_indexes ||= [ 1 ]
-  end
-
-
   def delta
     @delta ||= (1.0/60.0)
   end
 
+  def space_collision_sampling
+    6
+  end
+
+  def gravitational_forces
+    [ CP::Vec2.new(0,1000), CP::Vec2.new(0,0) ]
+  end
+
+  def apply_gravity_to(object)
+    object.body.apply_force *gravitational_forces
+  end
+
   def update
     original_position = hero.body.p.x
-    # gravity on just the hero
-    hero.body.apply_force CP::Vec2.new(0,1000), CP::Vec2.new(0,0)
-    6.times do
-      space.step(delta)
-    end
+    apply_gravity_to hero
+
+    space_collision_sampling.times { space.step(delta) }
 
     distance = (hero.body.p.x - original_position).to_i
     tile_map.viewport.shift(Point.at(distance,0))
@@ -90,17 +74,17 @@ class FirstScene < GameScene
   end
 
   def draw
-    world_shapes.each do |shape|
-      x_position = shape.bb.r - shape.bb.l
-      y_position = shape.bb.b - shape.bb.t
+    # world_shapes.each do |shape|
+    #   x_position = shape.bb.r - shape.bb.l
+    #   y_position = shape.bb.b - shape.bb.t
 
-      position_at = Point.at(shape.bb.l - tile_map.viewport.left,shape.bb.t - tile_map.viewport.top)
+    #   position_at = Point.at(shape.bb.l - tile_map.viewport.left,shape.bb.t - tile_map.viewport.top)
 
-      # dim = Dimensions.of(x_position,y_position)
-      # # using the hero to create the borders is because I don't have a good way to do it in the scene object
-      # border = hero.create "metro::ui::border", position: position_at, dimensions: dim
-      # border.draw
-    end
+    #   # dim = Dimensions.of(x_position,y_position)
+    #   # # using the hero to create the borders is because I don't have a good way to do it in the scene object
+    #   # border = hero.create "metro::ui::border", position: position_at, dimensions: dim
+    #   # border.draw
+    # end
   end
 
 end
