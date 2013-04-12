@@ -1,23 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="50" height="19" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="70" height="19" tilewidth="32" tileheight="32" backgroundcolor="#fd028e">
+ <properties>
+  <property name="hero.position.x" value="400"/>
+  <property name="viewport.left" value="384"/>
+ </properties>
  <tileset firstgid="1" name="Background" tilewidth="32" tileheight="32" spacing="2" margin="2">
   <image source="level.png" width="640" height="400"/>
  </tileset>
- <layer name="Tile Layer 1" width="50" height="19">
+ <layer name="Tile Layer 3" width="70" height="19">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo4B2oBeI+wbaEaNgxIHRdDf0wFCJM0kglgJi6YF2CA4gA8SyQCxHQJ02EOsAsS7NXUQe0ANifSA2IKDOFojtcMgNlrhyJEKNPxAH4JBDj6vZQDyHCu4iFQQjseVxqAliwO0PEIDFlREQ7wfiA5Q7i2jAOACYFu5QHQCMDQyEO0b9MeoPQhgAGBkloA==
+   eJzt0LEJAEAMAzFvkP23/QXSpAkf0IF640pSAAAAwMjPXdu7lV/6/KIrPaW3Ok4=
   </data>
  </layer>
- <objectgroup name="Object Layer 1" width="50" height="19">
-  <object name="Floor" type="floor" x="0" y="448" width="928" height="32"/>
-  <object name="Tree Top" type="floor" x="352" y="288" width="96" height="32"/>
-  <object name="Tree Top" type="floor" x="576" y="352" width="96" height="32"/>
-  <object name="Tree Top" type="floor" x="64" y="352" width="32" height="32"/>
-  <object name="Floor" type="floor" x="1088" y="448" width="512" height="32"/>
+ <layer name="Tile Layer 1" width="70" height="19">
+  <data encoding="base64" compression="zlib">
+   eJztlEtOAkEQhpsVXAEQWAkmyMu9JCyQpUZIlCNAwuMGgDtMNBG4AcEbEN3p0fiJPUmnwjxoqu1e8CVfeirT08+aEuKMDiM4tr0IRrj2M4MvDOO4Atd+lnClxG/wnWFcW9D96LKBnwzjuALXfr7gN8M4HPSkOgzgUPDt59j/0dR/FocJpfVIwhRMh3w/gVNhrr64RhFew1JIvw+4EG7XF86cuoV1Jb6AGZgl/daytVlfouY2B/fwQYnLsAKrPv1N1Be/u6BEzW0u6iRuBPQ1UV/C7sKD5raKiVyic7WV5ya8gy0Zm6ovQXfhQXNbhebSHL5qr+6PoHN5gs+wK2NT9UWdM+fzzaPwP5c93j5u4A/81VxbTbZ0rjaJ+3Arn6PWl5jD2lzvpcMewtZa8ie+55y3c0Dbd/UfZxzmlbQgW1N3cja6O6XxYCo=
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="70" height="19">
+  <data encoding="base64" compression="zlib">
+   eJztzrENACAIAEFW0k3cfxkbahtiKLhLvv8IAAAAqDsN/fiAiVa2u0fg4QKNPQ7S
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="70" height="19">
+  <object name="Floor" type="floor" x="320" y="448" width="928" height="32"/>
+  <object name="Tree Top" type="floor" x="672" y="288" width="96" height="32"/>
+  <object name="Tree Top" type="floor" x="896" y="352" width="96" height="32"/>
+  <object name="Tree Top" type="floor" x="384" y="352" width="32" height="32"/>
+  <object name="Floor" type="floor" x="1408" y="448" width="512" height="32"/>
+  <object type="floor" x="1824" y="384" width="32" height="32"/>
+  <object type="floor" x="1696" y="288" width="32" height="32"/>
+  <object type="floor" x="1568" y="224" width="32" height="32"/>
+  <object type="floor" x="1344" y="192" width="128" height="32"/>
+  <object name="Right Wall" type="floor" x="1920" y="0" width="32" height="480"/>
+  <object name="Left Wall" type="floor" x="288" y="0" width="32" height="448"/>
+  <object name="Pit" type="floor" x="1216" y="480" width="32" height="64"/>
+  <object name="Pit" type="floor" x="1216" y="544" width="224" height="32"/>
+  <object name="Pit" type="floor" x="1408" y="480" width="32" height="64"/>
  </objectgroup>
- <layer name="Tile Layer 2" width="50" height="19">
-  <data encoding="base64" compression="zlib">
-   eJztzrEJAAAIBLFf0f2XcQBrESSB6y8BAICpDtr4AP5rhiMOPg==
-  </data>
- </layer>
 </map>
