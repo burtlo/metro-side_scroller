@@ -1,15 +1,11 @@
 class FirstScene < GameScene
   draw :fps, model: "metro::ui::fps", placement: 'bottom_right'
 
-  # BUG: https://github.com/burtlo/metro/issues/4
-  # draw :hero, position: Game.center
-  draw :hero, position: "400,300"
+  draw :hero, position: Game.center
 
   draw :space, model: "metro::ui::space"
 
-  draw :tile_map, model: "metro::ui::tile_map", file: "level.tmx",
-    # BUG: https://github.com/burtlo/metro/issues/4
-    viewport: Metro::Units::RectangleBounds.new(left: 0, right: 800, top: 0, bottom: 600)
+  draw :tile_map, model: "metro::ui::tile_map", file: "level.tmx", viewport: Game.bounds
 
 
   def show
