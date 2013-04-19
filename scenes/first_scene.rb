@@ -5,7 +5,8 @@ class FirstScene < GameScene
 
   draw :space, model: "metro::ui::space"
 
-  draw :tile_map, model: "metro::ui::tile_map", file: "level.tmx", viewport: Game.bounds
+  draw :tile_map, model: "metro::ui::tile_map", file: "level.tmx",
+    viewport: Game.bounds, follow: :hero
 
 
   def show
@@ -26,10 +27,6 @@ class FirstScene < GameScene
     original_position = hero.body.p.x
 
     space.step
-
-    # TODO: by using an integer there is some slippage when a character moves less than a pixel
-    distance = (hero.body.p.x - original_position).to_i
-    tile_map.viewport.shift(Point.at(distance,0))
 
     space.clean_up
   end
