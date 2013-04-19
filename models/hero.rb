@@ -90,9 +90,9 @@ class Hero < Metro::UI::Sprite
   def draw
     dangle = body.a.to_degrees
 
-    hero_x = body.p.x - scene.tile_map.viewport.left
-    hero_y = body.p.y - scene.tile_map.viewport.top
-    current_image.draw_rot(hero_x,hero_y,z_order,dangle)
+    self.x = body.p.x - scene.tile_map.viewport.left
+    self.y = body.p.y - scene.tile_map.viewport.top
+    current_image.draw_rot(x,y,z_order,dangle)
 
     # dim = Dimensions.of(shape.bb.r - shape.bb.l,shape.bb.b - shape.bb.t)
     # border = create "metro::ui::border", position: Point.at(hero_x - 48,shape.bb.t), dimensions: dim
