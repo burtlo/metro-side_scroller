@@ -87,11 +87,13 @@ class Hero < Metro::UI::Sprite
     @walking
   end
 
-  def draw
-    dangle = body.a.to_degrees
-
+  def update
     self.x = body.p.x - scene.tile_map.viewport.left
     self.y = body.p.y - scene.tile_map.viewport.top
+  end
+
+  def draw
+    dangle = body.a.to_degrees
     current_image.draw_rot(x,y,z_order,dangle)
 
     # dim = Dimensions.of(shape.bb.r - shape.bb.l,shape.bb.b - shape.bb.t)
