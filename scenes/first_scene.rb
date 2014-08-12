@@ -24,10 +24,7 @@ class FirstScene < GameScene
 
 
   def update
-    original_position = hero.body.p.x
-
     space.step
-
     space.clean_up
   end
 
